@@ -10,12 +10,31 @@ This project investigates the landscape of mis/disinformation* and content integ
 
 ```
 ├───assets
+│   └───styles.css
 ├───data
 │   └───tiktok_dataset.csv
-├───notebooks: contains notebook to extract data from kaggle and set up api use. (uploaded)
-├───pages: contains all the pages for the dash app
-├───results: contains some html visualizations that were generated separately
-└───src: the scripts used for the results visualizations,
+├───notebooks
+│   └───data_extraction.ipynb
+├───pages
+│   └───about.py
+│   └───duration.py
+│   └───home.py
+│   └───relations.py
+│   └───wordcloud.py
+├───results
+│   └───duration_dynamics.html
+│   └───tiktok_sankey.html
+├───src
+│   └───content_journey_sankey.py
+│   └───duration_content_type_kde.py
+├───.gitignore
+├───.python-version
+├───app.py
+├───pyproject.toml
+├───README.md
+├───requirements.txt
+└───uv.lock
+
 ```
 
 ## Data

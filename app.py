@@ -7,7 +7,7 @@ app = dash.Dash(__name__,
                     dbc.themes.BOOTSTRAP,
                     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'
                 ],
-                use_pages=True)
+                use_pages=False)
 
 app.layout = html.Div(style={'backgroundColor': 'black', 'minHeight': '100vh'}, children=[
     html.Div(style={

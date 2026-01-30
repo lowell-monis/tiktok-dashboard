@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import dash
 
-dash.register_page(__name__, path='/', name="Content Journey")
+dash.register_page(__name__, path='/', name="Home")
 
 tiktok_clean = pd.read_csv('data/tiktok_dataset.csv')
 

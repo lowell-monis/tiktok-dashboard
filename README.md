@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project investigates the landscape of mis/disinformation* on TikTok by analyzing how content is flagged as "claims" versus "opinions." Using a dataset of over 19,000 TikTok videos, the dashboard visualizes the flow of content verification and examines whether video metadata—specifically duration—correlates with content integrity. The main insight demonstrates that claim-based videos are often shorter and less verified, creating a high-speed environment where malcontent can thrive.
+This project investigates the landscape of mis/disinformation* and content integrity on TikTok by analyzing metadata and moderator reports on how content is flagged as "claims" versus "opinions." Using a dataset of over 19,000 TikTok videos, the dashboard visualizes the flow of content verification and examines whether video metadata--specifically duration--correlates with content integrity. The main insight demonstrates that claim-based videos are often shorter and less verified, creating a high-speed environment where malcontent can thrive. By mapping these content journeys, the project aims to identify patterns in how misinformation spreads.
 
 > *mis = unintentional; dis = intentional
 
@@ -71,7 +71,18 @@ Follow these steps to go from a fresh clone to a fully interactive dashboard.
 
 ### Step 1: Extract the Data (Optional; the dataset is included)
 
-FOllow the instructions on the [extraction notebook](notebooks/data_extraction.ipynb) to pull the dataset directly from Kaggle and place it in the `data/` folder.
+Follow the instructions on the [extraction notebook](notebooks/data_extraction.ipynb) to pull the dataset directly from Kaggle and place it in the `data/` folder.
+
+To open JupyterLab:
+
+```bash
+# If using uv
+uv run jupyter lab
+
+# If using venv
+jupyter lab
+```
+Once Jupyter Lab opens, navigate to the `notebooks/` folder and open `data_extraction.ipynb`.
 
 * **Expected Outcome:** A file named `tiktok_dataset.csv` will appear in your `data/` directory.
 
@@ -109,7 +120,21 @@ python app.py
 ## Troubleshooting / Known Issues
 
 * **Pathing:** This project uses relative paths (e.g., `../data/`). If you run scripts from *inside* the `src` folder instead of the root, they may fail to find the CSV. Always run from the root.
-* **Python Version:** Requires Python 3.9+ due to specific dataframe operations and `kagglehub` requirements. Always use a virtual environment to avoid any errors.
+* **Python Version:** Requires Python 3.9+ due to specific dataframe operations and `kagglehub` requirements. Always use a virtual environment to avoid any errors. If `python` does not work on the terminal, try `python3`.
 * **File Signature Error:** If you see `PK` characters when opening the CSV, the file is still zipped. Ensure you have run the extraction logic in `data_extraction.ipynb` which handles `zipfile` unbundling.
 * **Memory:** The KDE calculation in `src/` uses `scipy.stats.gaussian_kde`, which can be memory-intensive on very old hardware but should run fine on standard laptops.
 * **Naming conventions:** Check the `.gitignore` for what file names you can't use (like `sandbox`). If you really want to use that name, remove it from the `.gitignore` file.
+* **Kaggle Auth Fail:** If the download fails, ensure your `.env` file is in the root directory and your `KAGGLE_API_TOKEN` is correct.
+* **ModuleNotFoundError:** If a package is missing in Jupyter, ensure you have selected the correct kernel (usually named `.venv` or `python3`) from the top-right corner of the notebook.
+
+## Contributing
+
+Contributions are welcome! To propose changes:
+
+1. Fork the repository.
+2. Create a Feature Branch (git checkout -b feature/AmazingFeature).
+3. Commit your changes (git commit -m 'Add some AmazingFeature').
+4. Push to the branch (git push origin feature/AmazingFeature).
+5. Open a Pull Request.
+
+For bugs, please open an Issue with a detailed description and steps to reproduce. Thank you!

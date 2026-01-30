@@ -18,9 +18,9 @@ app.layout = html.Div(style={'backgroundColor': 'black', 'minHeight': '100vh'}, 
     }, children=[
         html.H1(
     [
-        "Are we in ",
+        "the verification ",
         html.Span(
-            "deep shit",
+            "void",
             style={
                 'color': 'white',
                 'textShadow': '2px 2px 0 #ff0050, 4px 4px 0 #00f2ea, 6px 6px 0 #000000',
@@ -45,7 +45,7 @@ app.layout = html.Div(style={'backgroundColor': 'black', 'minHeight': '100vh'}, 
         
         html.H2(
             [
-                "Can ",
+                "can ",
                 html.Span(
                     "TikTok",
                     style={

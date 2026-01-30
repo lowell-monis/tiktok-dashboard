@@ -2,11 +2,10 @@ from dash import dcc, html
 import plotly.graph_objects as go
 import pandas as pd
 import dash
-from data import clean_dataset
 
 dash.register_page(__name__, path='/', name="Content Journey")
 
-tiktok_clean = clean_dataset()
+tiktok_clean = pd.read_csv('data/tiktok_dataset.csv')
 
 def create_sankey_figure(df):
     if df.empty:

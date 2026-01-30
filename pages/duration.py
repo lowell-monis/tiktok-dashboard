@@ -3,11 +3,11 @@ import plotly.graph_objects as go
 import numpy as np
 from scipy.stats import gaussian_kde
 import dash
-from data import df_duration
+import pandas as pd
 
 dash.register_page(__name__, name="Duration Dynamics", path="/duration-density")
-
-df = df_duration()
+df = pd.read_csv('data/tiktok_dataset.csv')
+df = df[df['video_duration_sec'].notna() & df['claim_status'].isin(['claim', 'opinion'])]
 
 colors = {'claim': '#FF0050', 'opinion': '#00F2EA'}
 

@@ -1,6 +1,7 @@
 # Environments
 .venv/
 env/
+.env
 
 # Python caches
 __pycache__/
@@ -15,7 +16,7 @@ src/__pycache__
 Thumbs.db
 
 # Data
-data/
+data/*.csv
 
 # Archive
-archive/
+sandbox/

@@ -18,9 +18,8 @@ app.layout = html.Div(style={'backgroundColor': 'black', 'minHeight': '100vh'}, 
     }, children=[
         html.H1(
     [
-        "the verification ",
         html.Span(
-            "void",
+            "algorithmic accountability",
             style={
                 'color': 'white',
                 'textShadow': '2px 2px 0 #ff0050, 4px 4px 0 #00f2ea, 6px 6px 0 #000000',
@@ -28,7 +27,7 @@ app.layout = html.Div(style={'backgroundColor': 'black', 'minHeight': '100vh'}, 
                 'animation': 'glitch-effect 2.5s infinite' 
             }
         ),
-        "?"
+        "."
     ],
             style={
                 'color': 'white',

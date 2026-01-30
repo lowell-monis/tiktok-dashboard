@@ -8,11 +8,12 @@ import io
 import base64
 import pandas as pd
 import dash
-import numpy as np
-from data import clean_dropdown_options, clean_dataset
 
-df = clean_dataset()
+df = pd.read_csv('data/tiktok_dataset.csv')
 dash.register_page(__name__, path='/wordcloud', name="Content Themes")
+
+def clean_dropdown_options(series):
+    return [{'label': str(s), 'value': s} for s in series.unique() if pd.notna(s)]
 
 # color palette for py compatibility
 tiktok_pink = '#FF0050'

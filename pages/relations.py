@@ -4,9 +4,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import dash
-from data import clean_dataset
 
-data = clean_dataset()
+data = pd.read_csv('data/tiktok_dataset.csv')
 
 def clean_dropdown_options(series):
     return [{'label': str(s), 'value': s} for s in series.unique() if pd.notna(s)]

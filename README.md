@@ -6,6 +6,18 @@ This project investigates the landscape of mis/disinformation* on TikTok by anal
 
 > *mis = unintentional; dis = intentional
 
+## Project Structure
+
+```
+├───assets
+├───data
+│   └───tiktok_dataset.csv
+├───notebooks: contains notebook to extract data from kaggle and set up api use. (uploaded)
+├───pages: contains all the pages for the dash app
+├───results: contains some html visualizations that were generated separately
+└───src: the scripts used for the results visualizations,
+```
+
 ## Data
 
 The analysis uses a pedagogical dataset provided by Ramin Huseyn on [Kaggle](https://www.kaggle.com/datasets/raminhuseyn/dataset-from-tiktok/data). It contains video metadata, verification statuses, and moderator review labels.
@@ -40,6 +52,9 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
+
+# To deactivate
+deactivate
 ```
 
 ### Kaggle API Configuration
@@ -54,19 +69,24 @@ To pull the data, you need a `.env` file in the root directory:
 
 Follow these steps to go from a fresh clone to a fully interactive dashboard.
 
-### Step 1: Extract the Data
+### Step 1: Extract the Data (Optional; the dataset is included)
 
 FOllow the instructions on the [extraction notebook](notebooks/data_extraction.ipynb) to pull the dataset directly from Kaggle and place it in the `data/` folder.
 
 * **Expected Outcome:** A file named `tiktok_dataset.csv` will appear in your `data/` directory.
 
-### Step 2: Generate Standalone Visualizations
+### Step 2: Generate Standalone Visualizations (Recommended to experiment with `uv`; visualizations already exist)
 
 If you want to generate the specific HTML results (Sankey and KDE plots) located in the `results/` folder, run the source scripts from the root:
 
 ```bash
-python src/generate_sankey.py
-python src/generate_kde.py
+# If using uv
+uv run src/content_journey_sankey.py
+uv run src/duration_content_type_kde.py
+
+# If using venv
+python src/content_journey_sankey.py
+python src/duration_content_type_kde.py
 
 ```
 
@@ -92,3 +112,4 @@ python app.py
 * **Python Version:** Requires Python 3.9+ due to specific dataframe operations and `kagglehub` requirements. Always use a virtual environment to avoid any errors.
 * **File Signature Error:** If you see `PK` characters when opening the CSV, the file is still zipped. Ensure you have run the extraction logic in `data_extraction.ipynb` which handles `zipfile` unbundling.
 * **Memory:** The KDE calculation in `src/` uses `scipy.stats.gaussian_kde`, which can be memory-intensive on very old hardware but should run fine on standard laptops.
+* **Naming conventions:** Check the `.gitignore` for what file names you can't use (like `sandbox`). If you really want to use that name, remove it from the `.gitignore` file.

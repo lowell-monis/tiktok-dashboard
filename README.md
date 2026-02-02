@@ -76,7 +76,7 @@ pip install -r requirements.txt
 deactivate
 ```
 
-### Kaggle API Configuration
+### Kaggle API Configuration (Optional)
 
 To pull the data, you need a `.env` file in the root directory:
 

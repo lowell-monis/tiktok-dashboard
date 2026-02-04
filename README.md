@@ -51,7 +51,25 @@ The analysis uses a pedagogical dataset provided by Ramin Huseyn on [Kaggle](htt
 
 You can set up this project using either `uv` (recommended for speed or beginners) or the standard `venv`.
 
-### Option A: Using `uv`
+### Prerequisites: Installing `uv`
+
+If you don't have `uv` installed, follow the instructions for your OS:
+
+```bash
+# macOS / Linux / WSL
+curl -LsSf [https://astral.sh/uv/install.sh](https://astral.sh/uv/install.sh) | sh
+```
+*Restart your terminal or run `source ~/.bashrc` (Linux) / `source ~/.zshrc` (macOS) after installation.*
+
+```powershell
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm [https://astral.sh/uv/install.ps1](https://astral.sh/uv/install.ps1) | iex"
+# Windows (winget)
+winget install --id=astral-sh.uv -e
+```
+To verify installation, run `uv --version`.
+
+### Option A: Using `uv` (Recommended)
 
 ```bash
 # Clone the repository
@@ -145,6 +163,8 @@ python app.py
 * **Naming conventions:** Check the `.gitignore` for what file names you can't use (like `sandbox`). If you really want to use that name, remove it from the `.gitignore` file.
 * **Kaggle Auth Fail:** If the download fails, ensure your `.env` file is in the root directory and your `KAGGLE_API_TOKEN` is correct.
 * **ModuleNotFoundError:** If a package is missing in Jupyter, ensure you have selected the correct kernel (usually named `.venv` or `python3`) from the top-right corner of the notebook.
+* **uv: command not found:** Your PATH may not be updated. Try restarting your terminal or manually sourcing your profile (e.g., `source ~/.bashrc`).
+* **PowerShell Execution Policy:** If the Windows installation fails, run PowerShell as Administrator and execute: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`, then try again.
 
 ## Contributing
 
